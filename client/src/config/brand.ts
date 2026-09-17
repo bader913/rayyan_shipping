@@ -1,0 +1,82 @@
+// مُولَّد آلياً من brand.config.json — لا تعدّله يدوياً.
+// شغّل: node scripts/apply-brand.mjs
+
+export const BRAND = {
+  "$comment": "مصدر الحقيقة الوحيد لهوية التطبيق. غيّر هنا فقط ثم شغّل: node scripts/apply-brand.mjs",
+  "appId": "com.example.shipping",
+  "appKey": "shipping",
+  "name": {
+    "ar": "نظام الشحن",
+    "en": "Shipping System"
+  },
+  "shortName": {
+    "ar": "الشحن",
+    "en": "Shipping"
+  },
+  "tagline": {
+    "ar": "إدارة الشحن والمندوبين والتجار",
+    "en": "Delivery, Drivers & Merchants Management"
+  },
+  "company": {
+    "ar": "شركتك",
+    "en": "Your Company"
+  },
+  "theme": {
+    "primary": "#1F3A5F",
+    "accent": "#1E7A46",
+    "danger": "#A61B1B",
+    "logoLight": "assets/logo-light.png",
+    "logoDark": "assets/logo-dark.png",
+    "icon": "assets/icon.png",
+    "iconIco": "assets/icon.ico"
+  },
+  "locale": {
+    "default": "ar",
+    "supported": [
+      "ar",
+      "en"
+    ],
+    "direction": "rtl"
+  },
+  "support": {
+    "website": "https://example.com",
+    "email": "support@example.com",
+    "phone": ""
+  },
+  "deployment": {
+    "webOnly": false,
+    "desktop": true,
+    "defaultWebPort": 5173,
+    "defaultApiPort": 3000
+  },
+  "features": {
+    "cashOnDelivery": true,
+    "multiCurrency": true,
+    "multiBranch": true,
+    "liveTracking": true,
+    "publicTracking": true,
+    "generalLedger": false
+  }
+} as const;
+
+export type Locale = 'ar' | 'en';
+
+export function appName(locale: Locale = BRAND.locale.default as Locale): string {
+  return BRAND.name[locale] ?? BRAND.name.ar;
+}
+
+export function shortName(locale: Locale = BRAND.locale.default as Locale): string {
+  return BRAND.shortName[locale] ?? BRAND.shortName.ar;
+}
+
+export function tagline(locale: Locale = BRAND.locale.default as Locale): string {
+  return BRAND.tagline[locale] ?? BRAND.tagline.ar;
+}
+
+export function pageTitle(section?: string, locale: Locale = BRAND.locale.default as Locale): string {
+  const base = appName(locale);
+  return section ? `${section} — ${base}` : base;
+}
+
+export const isRTL = BRAND.locale.direction === 'rtl';
+export const FEATURES = BRAND.features;

@@ -1,0 +1,23 @@
+node_modules/
+dist/
+build/
+release/
+out/
+
+.env
+.env.*
+!.env.example
+
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+# مخرجات الفصل — تُولَّد محلياً، لا تُرفع
+migrations/_source/
+
+coverage/
+*.tsbuildinfo

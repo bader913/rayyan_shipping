@@ -1,0 +1,10 @@
+{
+  "appId": "com.example.shipping",
+  "productName": "نظام الشحن",
+  "shortName": "الشحن",
+  "primary": "#1F3A5F",
+  "icon": "assets/icon.png",
+  "iconIco": "assets/icon.ico",
+  "defaultWebPort": 5173,
+  "defaultApiPort": 3000
+}

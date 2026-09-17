@@ -1,0 +1,37 @@
+{
+  "name": "shipping",
+  "productName": "نظام الشحن",
+  "description": "إدارة الشحن والمندوبين والتجار",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "brand": "node scripts/apply-brand.mjs",
+    "brand:check": "node scripts/apply-brand.mjs --check",
+    "extract": "node scripts/extract-from-rayyan.mjs",
+    "migrations:merge": "node scripts/merge-migrations.mjs",
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm --workspace server run dev",
+    "dev:client": "npm --workspace client run dev",
+    "build": "npm run brand && npm --workspace server run build && npm --workspace client run build",
+    "start": "npm --workspace server run start",
+    "electron:dev": "cross-env APP_SHELL_MODE=dev electron electron/main.cjs",
+    "electron:build": "npm run build && electron-builder --config electron-builder.config.cjs",
+    "typecheck": "npm --workspace server run typecheck && npm --workspace client run typecheck",
+    "test": "npm --workspace server run test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}

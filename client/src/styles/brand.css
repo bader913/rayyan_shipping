@@ -1,0 +1,7 @@
+/* مُولَّد آلياً من brand.config.json — لا تعدّله يدوياً. */
+:root {
+  --brand-primary: #1F3A5F;
+  --brand-accent: #1E7A46;
+  --brand-danger: #A61B1B;
+}
+html[dir='rtl'] body { text-align: right; }
